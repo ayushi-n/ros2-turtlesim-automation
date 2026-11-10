@@ -1,0 +1,8 @@
+# colcon workspace output (if the repo is used as a workspace root)
+build/
+install/
+log/
+
+# Python cache
+__pycache__/
+*.pyc
