@@ -1,6 +1,6 @@
 """
-shape_drawer node
-=================
+shape_drawer node.
+
 Makes turtle1 draw a geometric shape automatically.
 
 How it works (in short):
@@ -29,15 +29,15 @@ import math
 import threading
 import time
 
-import rclpy
-from rclpy.node import Node
-from rclpy.executors import SingleThreadedExecutor
-from rclpy.signals import SignalHandlerOptions
-from rcl_interfaces.msg import SetParametersResult
 from geometry_msgs.msg import Twist
+from rcl_interfaces.msg import SetParametersResult
+import rclpy
+from rclpy.executors import SingleThreadedExecutor
+from rclpy.node import Node
+from rclpy.signals import SignalHandlerOptions
+from std_srvs.srv import Empty, Trigger
 from turtlesim.msg import Pose
 from turtlesim.srv import SetPen, TeleportAbsolute
-from std_srvs.srv import Empty, Trigger
 
 # The turtlesim window is 11 x 11 units; its centre is (5.544, 5.544).
 CENTER_X = 5.544
@@ -286,7 +286,7 @@ class ShapeDrawer(Node):
         self.get_logger().info(f'Finished the {shape}')
 
     def run(self):
-        """Main loop: wait for a shape request, then draw it."""
+        """Wait for a shape request, then draw it (main loop)."""
         self.get_logger().info('Waiting for the first /turtle1/pose message...')
         while rclpy.ok() and self.pose is None:
             time.sleep(0.1)

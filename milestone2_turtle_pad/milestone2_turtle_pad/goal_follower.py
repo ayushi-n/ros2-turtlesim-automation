@@ -1,11 +1,11 @@
 """
-goal_follower node
-==================
+goal_follower node.
+
 Drives turtle1 to a goal point (x, y) with a proportional (P) controller.
 
 Where do goals come from?
   Any node can publish a geometry_msgs/Point on the topic /goal_point:
-    - mouse_goal  (click in the window, or follow the cursor)
+    - goal_pad    (click in the window, or follow the cursor)
     - goal_input  (type "x y" in a terminal)
     - or by hand: ros2 topic pub --once /goal_point geometry_msgs/msg/Point "{x: 2.0, y: 8.0}"
 
@@ -26,10 +26,10 @@ never drives into the walls.
 
 import math
 
-import rclpy
-from rclpy.node import Node
-from rclpy.executors import ExternalShutdownException
 from geometry_msgs.msg import Point, Twist
+import rclpy
+from rclpy.executors import ExternalShutdownException
+from rclpy.node import Node
 from turtlesim.msg import Pose
 
 # Turtlesim's window goes from 0 to 11.088 in both x and y.
@@ -76,7 +76,7 @@ class GoalFollower(Node):
         self.pose = msg
 
     def goal_callback(self, msg):
-        """A new goal arrived: keep it inside the walls, then store it."""
+        """Store a new goal after keeping it inside the walls."""
         margin = self.get_parameter('wall_margin').value
         x = clamp(msg.x, margin, WORLD_SIZE - margin)
         y = clamp(msg.y, margin, WORLD_SIZE - margin)
@@ -93,7 +93,7 @@ class GoalFollower(Node):
 
     # ------------------------------------------------------------------
     def control_loop(self):
-        """The P controller. Runs every 0.05 s."""
+        """Run one step of the P controller (called every 0.05 s)."""
         if self.pose is None or self.goal is None:
             return   # nothing to do yet
 

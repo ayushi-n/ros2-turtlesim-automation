@@ -4,7 +4,7 @@
   <name>milestone2_turtle_pad</name>
   <version>1.0.0</version>
   <description>Turtle Pad: drive the turtlesim turtle to clicked points or follow the mouse with a P controller</description>
-  <maintainer email="228990708+ayushi-n@users.noreply.github.com">ayushi-n</maintainer>
+  <maintainer email="228990708+ayushi-n@users.noreply.github.com">Ayushi N</maintainer>
   <license>Apache-2.0</license>
 
   <depend>rclpy</depend>

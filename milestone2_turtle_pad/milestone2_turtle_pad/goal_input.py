@@ -1,6 +1,6 @@
 """
-goal_input node
-===============
+goal_input node.
+
 Backup way to set a goal: type it in the terminal.
 
     Goal x y > 2 8        -> sends (2.0, 8.0) on /goal_point
@@ -9,9 +9,9 @@ Backup way to set a goal: type it in the terminal.
 Goals outside the walls are corrected by goal_follower.
 """
 
+from geometry_msgs.msg import Point
 import rclpy
 from rclpy.node import Node
-from geometry_msgs.msg import Point
 
 
 class GoalInput(Node):

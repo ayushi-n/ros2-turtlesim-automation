@@ -4,7 +4,7 @@
   <name>milestone1_shape_drawer</name>
   <version>1.0.0</version>
   <description>Turtlesim automatically draws geometric shapes (square, triangle, pentagon, hexagon, star, circle)</description>
-  <maintainer email="228990708+ayushi-n@users.noreply.github.com">ayushi-n</maintainer>
+  <maintainer email="228990708+ayushi-n@users.noreply.github.com">Ayushi N</maintainer>
   <license>Apache-2.0</license>
 
   <depend>rclpy</depend>

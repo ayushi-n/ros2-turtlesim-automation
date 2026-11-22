@@ -1,5 +1,5 @@
-import os
 from glob import glob
+import os
 
 from setuptools import find_packages, setup
 
@@ -18,9 +18,10 @@ setup(
     ],
     install_requires=['setuptools'],
     zip_safe=True,
-    maintainer='ayushi-n',
+    maintainer='Ayushi N',
     maintainer_email='228990708+ayushi-n@users.noreply.github.com',
-    description='Turtlesim automatically draws geometric shapes (square, triangle, pentagon, hexagon, star, circle)',
+    description=('Turtlesim automatically draws geometric shapes '
+                 '(square, triangle, pentagon, hexagon, star, circle)'),
     license='Apache-2.0',
     extras_require={
         'test': [

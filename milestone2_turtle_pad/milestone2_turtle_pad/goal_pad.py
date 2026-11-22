@@ -1,6 +1,6 @@
 """
-goal_pad node
-=============
+goal_pad node.
+
 An interactive "pad" that sits next to the turtlesim window. It is the same
 size (500 x 500 px) and the same blue, and it maps 1:1 onto turtlesim's
 11 x 11 world.
@@ -27,10 +27,10 @@ import signal
 import subprocess
 import tkinter as tk
 
+from geometry_msgs.msg import Point
 import rclpy
 from rclpy.node import Node
 from rclpy.signals import SignalHandlerOptions
-from geometry_msgs.msg import Point
 from turtlesim.msg import Pose
 
 WORLD_SIZE = 11.088            # turtlesim world size, same in x and y
@@ -42,12 +42,12 @@ REACHED_DISTANCE = 0.15        # marker turns green when the turtle is this clos
 
 
 def pixel_to_world(px, py):
-    """tkinter pixel -> turtlesim coordinates."""
+    """Convert a tkinter pixel to turtlesim coordinates."""
     return px / SCALE, (PAD_PX - py) / SCALE
 
 
 def world_to_pixel(x, y):
-    """turtlesim coordinates -> tkinter pixel."""
+    """Convert turtlesim coordinates to a tkinter pixel."""
     return x * SCALE, PAD_PX - y * SCALE
 
 
@@ -205,8 +205,10 @@ class GoalPad(Node):
             r = 8 if self.mode == 'click' else 5          # smaller marker in follow mode
             self.canvas.create_oval(gx - r, gy - r, gx + r, gy + r,
                                     outline=color, width=3, tags='dynamic')
-            self.canvas.create_line(gx - r - 4, gy, gx + r + 4, gy, fill=color, width=2, tags='dynamic')
-            self.canvas.create_line(gx, gy - r - 4, gx, gy + r + 4, fill=color, width=2, tags='dynamic')
+            self.canvas.create_line(gx - r - 4, gy, gx + r + 4, gy,
+                                    fill=color, width=2, tags='dynamic')
+            self.canvas.create_line(gx, gy - r - 4, gx, gy + r + 4,
+                                    fill=color, width=2, tags='dynamic')
 
         if self.pose is not None:
             tx, ty = world_to_pixel(self.pose.x, self.pose.y)
@@ -217,7 +219,7 @@ class GoalPad(Node):
                                     fill='white', outline='black', tags='dynamic')
 
     def ros_tick(self):
-        """Called by tkinter every 50 ms: handle ROS messages, then redraw.
+        """Handle ROS messages, then redraw (tkinter calls this every 50 ms).
 
         Doing ROS and the GUI in ONE thread keeps the program simple and safe.
         """

@@ -1,5 +1,5 @@
-import os
 from glob import glob
+import os
 
 from setuptools import find_packages, setup
 
@@ -18,9 +18,10 @@ setup(
     ],
     install_requires=['setuptools'],
     zip_safe=True,
-    maintainer='ayushi-n',
+    maintainer='Ayushi N',
     maintainer_email='228990708+ayushi-n@users.noreply.github.com',
-    description='Turtle Pad: drive the turtlesim turtle to clicked points or follow the mouse with a P controller',
+    description=('Turtle Pad: drive the turtlesim turtle to clicked points '
+                 'or follow the mouse with a P controller'),
     license='Apache-2.0',
     extras_require={
         'test': [

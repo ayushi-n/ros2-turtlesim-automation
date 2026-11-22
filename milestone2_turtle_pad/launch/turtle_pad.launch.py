@@ -2,7 +2,8 @@
 Goal-follower demo: opens turtlesim and the Turtle Pad side by side.
 
     ros2 launch milestone2_turtle_pad turtle_pad.launch.py
-    ros2 launch milestone2_turtle_pad turtle_pad.launch.py typing:=true   # also open a terminal to type goals
+    # also open a terminal to type goals:
+    ros2 launch milestone2_turtle_pad turtle_pad.launch.py typing:=true
 
 Starts:
   turtlesim_node  - the simulator window
