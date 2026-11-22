@@ -52,7 +52,8 @@ def normalize_angle(angle):
 
 
 def polygon_vertices(sides, radius):
-    """Corners of a regular polygon centred in the window.
+    """
+    Corners of a regular polygon centred in the window.
 
     The corners lie on a circle of the given radius. We rotate the polygon
     so that its bottom edge is horizontal (looks nicer).
@@ -67,7 +68,8 @@ def polygon_vertices(sides, radius):
 
 
 def shape_vertices(shape, size):
-    """Return the list of points the turtle must visit to draw `shape`.
+    """
+    Return the list of points the turtle must visit to draw `shape`.
 
     The last point equals the first one, so the outline is closed.
     """
@@ -182,7 +184,8 @@ class ShapeDrawer(Node):
         return distance, heading_error
 
     def go_to(self, x, y, tolerance=0.03):
-        """Drive the turtle in a straight line to (x, y) using P control.
+        """
+        Drive the turtle in a straight line to (x, y) using P control.
 
         Phase 1 - TURN on the spot until we face the point.
         Phase 2 - DRIVE forward (with small steering corrections) until we are
@@ -224,7 +227,8 @@ class ShapeDrawer(Node):
     # Drawing a whole shape
     # ------------------------------------------------------------------
     def drive_circle(self, radius, speed=1.5):
-        """Drive forward while turning at a constant rate: this traces a circle.
+        """
+        Drive forward while turning at a constant rate: this traces a circle.
 
         For a circle of radius r:  angular speed = linear speed / r.
         We add up how much the turtle has turned and stop after 2*pi (360 deg).

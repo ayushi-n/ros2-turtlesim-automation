@@ -52,7 +52,8 @@ def world_to_pixel(x, y):
 
 
 def find_turtlesim_window():
-    """Return (x, y, width, height) of the turtlesim window, or None.
+    """
+    Return (x, y, width, height) of the turtlesim window, or None.
 
     Uses the `xwininfo` tool. This only works when turtlesim runs through X11
     (the launch file sets QT_QPA_PLATFORM=xcb for that reason).
@@ -138,7 +139,8 @@ class GoalPad(Node):
         self.canvas.itemconfig(self.mode_text, text=text)
 
     def place_window(self, tries_left=40):
-        """Put the pad just to the right of turtlesim, at the same height.
+        """
+        Put the pad just to the right of turtlesim, at the same height.
 
         Turtlesim may take a few seconds to open, so we retry every 0.5 s.
         """
@@ -219,7 +221,8 @@ class GoalPad(Node):
                                     fill='white', outline='black', tags='dynamic')
 
     def ros_tick(self):
-        """Handle ROS messages, then redraw (tkinter calls this every 50 ms).
+        """
+        Handle ROS messages, then redraw (tkinter calls this every 50 ms).
 
         Doing ROS and the GUI in ONE thread keeps the program simple and safe.
         """
