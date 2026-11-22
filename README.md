@@ -1,5 +1,7 @@
 # ROS 2 Turtlesim Automation
 
+[![ROS 2 CI](https://github.com/ayushi-n/ros2-turtlesim-automation/actions/workflows/ci.yml/badge.svg)](https://github.com/ayushi-n/ros2-turtlesim-automation/actions/workflows/ci.yml)
+
 Two small ROS 2 (Jazzy) projects that automate the classic **turtlesim** robot
 using nodes, topics, services, parameters and a proportional (P) controller.
 
@@ -112,6 +114,16 @@ the **distance** to the goal and the **heading error** (how far it must turn).
 - turtlesim advances a fixed step per update, so on a slow virtual machine everything
   moves slower than real time. That is expected.
 
+## Running the tests
+
+```bash
+cd ~/ros2_ws
+colcon test --packages-select milestone1_shape_drawer milestone2_turtle_pad
+colcon test-result --verbose
+```
+
+The same build and lint checks run on GitHub Actions for every push.
+
 ## License
 
-Apache-2.0
+[Apache-2.0](LICENSE) © Ayushi N
